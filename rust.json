@@ -3,14 +3,14 @@
   "version" : "0.0.1",
   "description": "Rust language runner for gauge",
   "run": {
-    "windows": ["./bin/gauge-rs", "--run"],
-    "linux": ["./bin/gauge-rs", "--run"],
-    "darwin": ["./bin/gauge-rs", "--run"]
+    "windows": ["./bin/gauge_rs", "--run"],
+    "linux": ["./bin/gauge_rs", "--run"],
+    "darwin": ["./bin/gauge_rs", "--run"]
   },
   "init": {
-    "windows": ["./bin/gauge-rs", "--init"],
-    "linux": ["./bin/gauge-rs", "--init"],
-    "darwin": ["./bin/gauge-rs", "--init"]
+    "windows": ["./bin/gauge_rs", "--init"],
+    "linux": ["./bin/gauge_rs", "--init"],
+    "darwin": ["./bin/gauge_rs", "--init"]
   },
   "lib": "libs",
   "gaugeVersionSupport": {
