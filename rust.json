@@ -1,0 +1,20 @@
+{
+  "id" : "rust",
+  "version" : "0.0.1",
+  "description": "Rust language runner for gauge",
+  "run": {
+    "windows": ["./bin/gauge-rs", "--run"],
+    "linux": ["./bin/gauge-rs", "--run"],
+    "darwin": ["./bin/gauge-rs", "--run"]
+  },
+  "init": {
+    "windows": ["./bin/gauge-rs", "--init"],
+    "linux": ["./bin/gauge-rs", "--init"],
+    "darwin": ["./bin/gauge-rs", "--init"]
+  },
+  "lib": "libs",
+  "gaugeVersionSupport": {
+    "minimum": "0.3.0",
+    "maximum": ""
+  }
+}
