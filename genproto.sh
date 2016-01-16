@@ -17,7 +17,7 @@ command -v protoc >/dev/null 2>&1 || { echo >&2 "protoc executable is not instal
 
 PATH="$PROTOC_GEN_RUST_PATH:$PATH"
 
-DEST_DIR="../proto"
+DEST_DIR="../src/proto"
 GAUGE_PROTO_DIR="gauge-proto"
 
 protoc --version
@@ -28,6 +28,6 @@ cd "$GAUGE_PROTO_DIR"
 rm -rf "$DEST_DIR"
 mkdir -p "$DEST_DIR"
 
-protoc --rust_out ../proto/ "spec.proto"
-protoc --rust_out ../proto/ "messages.proto"
-protoc --rust_out ../proto/ "api.proto"
+protoc --rust_out "$DEST_DIR/" "spec.proto"
+protoc --rust_out "$DEST_DIR/" "messages.proto"
+protoc --rust_out "$DEST_DIR/" "api.proto"
