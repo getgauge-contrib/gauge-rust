@@ -1,0 +1,11 @@
+[package]
+
+name = "gauge_rs"
+version = "0.0.1"
+authors = [ "Kaustav Das Modak <kaustav.dasmodak@yahoo.co.in" ]
+description = """
+Rust language runner for Gauge test automation suite
+"""
+
+[dependencies]
+protobuf = "1.0.15"
