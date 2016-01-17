@@ -1,3 +1,3 @@
-pub fn run () {
+pub fn run() {
     println!("Run");
 }

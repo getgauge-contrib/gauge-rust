@@ -1,3 +1,3 @@
-pub fn init () {
+pub fn init() {
     println!("Init");
 }
