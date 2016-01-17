@@ -17,3 +17,4 @@ Cargo.lock
 /deploy/
 /target/
 *.rs.bk
+*.log
