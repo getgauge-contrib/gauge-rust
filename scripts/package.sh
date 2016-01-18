@@ -33,6 +33,7 @@ mkdir -p "$DEPLOY_DIR"
 cp "$TARGET_DIR/gauge_rs" "$BUILD_DIR/bin/"
 cp "rust.json" "$BUILD_DIR/"
 cp "LICENSE" "$BUILD_DIR/"
+cp -r "skel" "$BUILD_DIR/"
 
 pushd "$BUILD_DIR" > /dev/null
 find . -path '*/.*' -prune -o -type f -print | zip -q -0 "$DEPLOY_DIR/$OUTPUT_FILE" -@
