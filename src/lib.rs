@@ -6,6 +6,7 @@ use std::path::Path;
 use std::fs::File;
 use std::io::Read;
 
+pub mod common;
 pub mod install;
 pub mod runner;
 
