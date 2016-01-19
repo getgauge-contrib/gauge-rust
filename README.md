@@ -5,6 +5,12 @@ Rust language plugin for Gauge
 
 # Develop
 
+## Build
+
+```sh
+$ cargo build --release
+```
+
 ## Install plugin locally
 
 Create package file and install with `gauge`:
