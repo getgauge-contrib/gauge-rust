@@ -35,21 +35,14 @@ pub fn path_to<'a>(path: &'a str, root: Root) -> PathBuf {
     root_path.join(path)
 }
 
-pub fn create_dir(dirpath: &PathBuf) {
-    fs::create_dir_all(dirpath).unwrap_or_else(|why| {
-        println!("! {:?}", why.kind());
-    });
+pub fn create_dir(dirpath: &PathBuf) -> io::Result<&PathBuf> {
+    try!(fs::create_dir_all(dirpath));
+    Ok(dirpath)
 }
 
-pub fn copy_file(from: &PathBuf, to: &PathBuf) {
-    match fs::copy(from, to) {
-        Ok(_) => println!("Created: {:?}", to.file_name().unwrap()),
-        Err(e) => {
-            panic!("Could not create {:?}. Error: {}",
-                   to.file_name().unwrap(),
-                   e)
-        }
-    }
+pub fn copy_file<'a>(from: &'a PathBuf, to: &'a PathBuf) -> io::Result<(&'a PathBuf, &'a PathBuf)> {
+    try!(fs::copy(from, to));
+    Ok((from, to))
 }
 
 pub fn visit_dirs(dir: &Path, cb: &Fn(&DirEntry)) -> io::Result<()> {
