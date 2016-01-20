@@ -1,5 +1,3 @@
-use common::*;
+use scanner;
 
-pub fn run() {
-    println!("Run on {}", &CONFIG.internal_port);
-}
+pub fn run() { scanner::scan(); }
