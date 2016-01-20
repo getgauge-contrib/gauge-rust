@@ -1,39 +1,41 @@
+extern crate lazy_static;
+
 use std::env;
 use std::io;
 use std::path::{Path, PathBuf};
 use std::fs::{self, DirEntry};
 use std::string::String;
 
-pub enum Root {
-    Plugin,
-    Project,
-}
-
 pub struct Config {
-    pub steps_file: &'static str,
-    pub step_implementations_path: &'static str,
-    pub skel_path: &'static str,
-    pub internal_port: &'static str,
-    pub project_root: &'static str,
+    pub steps_file: String,
+    pub step_implementations_path: PathBuf,
+    pub skel_path: PathBuf,
+    pub internal_port: String,
 }
 
-pub const CONFIG: Config = Config {
-    steps_file: "steps.rs",
-    step_implementations_path: "tests",
-    skel_path: "skel",
-    internal_port: "GAUGE_INTERNAL_PORT",
-    project_root: "GAUGE_PROJECT_ROOT",
-};
-
-pub fn env_var(ev: &'static str) -> Option<String> { env::var(ev).ok() }
-
-pub fn path_to<'a>(path: &'a str, root: Root) -> PathBuf {
-    let root_path = match root {
-        Root::Plugin => env::current_dir().unwrap(),
-        Root::Project => PathBuf::from(env_var(CONFIG.project_root).unwrap()),
+lazy_static! {
+    pub static ref PROJECT_ROOT: PathBuf = PathBuf::from(env_var("GAUGE_PROJECT_ROOT"));
+    pub static ref PLUGIN_SOURCE: PathBuf = match env::current_dir() {
+        Ok(d) => d,
+        Err(_) => PathBuf::from("")
     };
-    root_path.join(path)
+
+    pub static ref CONFIG: Config = Config {
+        steps_file: String::from("steps.rs"),
+        step_implementations_path: path_to("tests", &PROJECT_ROOT),
+        skel_path: path_to("skel", &PLUGIN_SOURCE),
+        internal_port: env_var("GAUGE_INTERNAL_PORT"),
+    };
 }
+
+pub fn env_var(ev: &'static str) -> String {
+    match env::var(ev) {
+        Ok(val) => val,
+        Err(_) => String::new(),
+    }
+}
+
+pub fn path_to<'a>(pathslice: &'a str, root: &PathBuf) -> PathBuf { root.join(pathslice) }
 
 pub fn create_dir(dirpath: &PathBuf) -> io::Result<&PathBuf> {
     try!(fs::create_dir_all(dirpath));

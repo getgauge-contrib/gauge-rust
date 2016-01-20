@@ -1,3 +1,5 @@
+#[macro_use]
+extern crate lazy_static;
 extern crate rustc_serialize;
 
 use rustc_serialize::json::Json;
@@ -13,21 +15,13 @@ pub mod runner;
 pub fn plugin_json() -> Json {
     let file_path = Path::new("rust.json");
     let mut file = match File::open(&file_path) {
-        Err(why) => {
-            panic!("Couldn't open plugin meta file {}: {}",
-                   file_path.display(),
-                   Error::description(&why))
-        }
+        Err(why) => panic!("Couldn't open plugin meta file {}: {}", file_path.display(), Error::description(&why)),
         Ok(file) => file,
     };
 
     let mut s = String::new();
     match file.read_to_string(&mut s) {
-        Err(why) => {
-            panic!("Couldn't read plugin meta file {}: {}",
-                   file_path.display(),
-                   Error::description(&why))
-        }
+        Err(why) => panic!("Couldn't read plugin meta file {}: {}", file_path.display(), Error::description(&why)),
         Ok(content) => content,
     };
 

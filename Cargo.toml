@@ -10,3 +10,4 @@ Rust language runner for Gauge test automation suite
 [dependencies]
 protobuf = "1.0.15"
 rustc-serialize = "0.3.16"
+lazy_static = "0.1.15"
