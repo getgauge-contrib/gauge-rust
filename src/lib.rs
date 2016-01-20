@@ -10,6 +10,9 @@ use std::io::Read;
 
 pub mod common;
 pub mod install;
+pub mod scanner;
+pub mod connection;
+pub mod message;
 pub mod runner;
 
 pub fn plugin_json() -> Json {
