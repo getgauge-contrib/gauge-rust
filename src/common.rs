@@ -2,7 +2,7 @@ extern crate lazy_static;
 
 use std::env;
 use std::io;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::fs::{self, DirEntry};
 use std::string::String;
 
@@ -48,7 +48,7 @@ pub fn copy_file<'a>(from: &'a PathBuf, to: &'a PathBuf) -> io::Result<(&'a Path
 }
 
 // Source: https://doc.rust-lang.org/std/fs/fn.read_dir.html
-pub fn visit_dirs(dir: &Path, cb: &Fn(&DirEntry)) -> io::Result<()> {
+pub fn visit_dirs(dir: &PathBuf, cb: &Fn(&DirEntry)) -> io::Result<()> {
     if try!(fs::metadata(dir)).is_dir() {
         for entry in try!(fs::read_dir(dir)) {
             let entry = try!(entry);
