@@ -1,4 +1,5 @@
-# gauge-rs
+# gauge-rust
+
 Rust language plugin for Gauge
 
 **Status: Work-in-progress/Incomplete**
