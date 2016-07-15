@@ -1,11 +1,21 @@
 // This file is generated. Do not edit
 // @generated
 
+// https://github.com/Manishearth/rust-clippy/issues/702
+#![allow(unknown_lints)]
+#![allow(clippy)]
+
+#![cfg_attr(rustfmt, rustfmt_skip)]
+
+#![allow(box_pointers)]
 #![allow(dead_code)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 #![allow(non_upper_case_globals)]
+#![allow(trivial_casts)]
+#![allow(unsafe_code)]
 #![allow(unused_imports)]
+#![allow(unused_results)]
 
 use protobuf::Message as Message_imported_for_functions;
 use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
@@ -16,6 +26,9 @@ pub struct GetProjectRootRequest {
     unknown_fields: ::protobuf::UnknownFields,
     cached_size: ::std::cell::Cell<u32>,
 }
+
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetProjectRootRequest {}
 
 impl GetProjectRootRequest {
     pub fn new() -> GetProjectRootRequest {
@@ -73,11 +86,11 @@ impl ::protobuf::Message for GetProjectRootRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -144,6 +157,9 @@ pub struct GetProjectRootResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetProjectRootResponse {}
+
 impl GetProjectRootResponse {
     pub fn new() -> GetProjectRootResponse {
         ::std::default::Default::default()
@@ -182,7 +198,7 @@ impl GetProjectRootResponse {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_projectRoot<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_projectRoot(&mut self) -> &mut ::std::string::String {
         if self.projectRoot.is_none() {
             self.projectRoot.set_default();
         };
@@ -194,7 +210,7 @@ impl GetProjectRootResponse {
         self.projectRoot.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_projectRoot<'a>(&'a self) -> &'a str {
+    pub fn get_projectRoot(&self) -> &str {
         match self.projectRoot.as_ref() {
             Some(v) => &v,
             None => "",
@@ -229,7 +245,7 @@ impl ::protobuf::Message for GetProjectRootResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.projectRoot.iter() {
+        for value in &self.projectRoot {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -249,11 +265,11 @@ impl ::protobuf::Message for GetProjectRootResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -325,6 +341,9 @@ pub struct GetInstallationRootRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetInstallationRootRequest {}
+
 impl GetInstallationRootRequest {
     pub fn new() -> GetInstallationRootRequest {
         ::std::default::Default::default()
@@ -381,11 +400,11 @@ impl ::protobuf::Message for GetInstallationRootRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -452,6 +471,9 @@ pub struct GetInstallationRootResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetInstallationRootResponse {}
+
 impl GetInstallationRootResponse {
     pub fn new() -> GetInstallationRootResponse {
         ::std::default::Default::default()
@@ -490,7 +512,7 @@ impl GetInstallationRootResponse {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_installationRoot<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_installationRoot(&mut self) -> &mut ::std::string::String {
         if self.installationRoot.is_none() {
             self.installationRoot.set_default();
         };
@@ -502,7 +524,7 @@ impl GetInstallationRootResponse {
         self.installationRoot.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_installationRoot<'a>(&'a self) -> &'a str {
+    pub fn get_installationRoot(&self) -> &str {
         match self.installationRoot.as_ref() {
             Some(v) => &v,
             None => "",
@@ -537,7 +559,7 @@ impl ::protobuf::Message for GetInstallationRootResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.installationRoot.iter() {
+        for value in &self.installationRoot {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -557,11 +579,11 @@ impl ::protobuf::Message for GetInstallationRootResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -633,6 +655,9 @@ pub struct GetAllStepsRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetAllStepsRequest {}
+
 impl GetAllStepsRequest {
     pub fn new() -> GetAllStepsRequest {
         ::std::default::Default::default()
@@ -689,11 +714,11 @@ impl ::protobuf::Message for GetAllStepsRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -760,6 +785,9 @@ pub struct GetAllStepsResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetAllStepsResponse {}
+
 impl GetAllStepsResponse {
     pub fn new() -> GetAllStepsResponse {
         ::std::default::Default::default()
@@ -793,7 +821,7 @@ impl GetAllStepsResponse {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_allSteps<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<super::spec::ProtoStepValue> {
+    pub fn mut_allSteps(&mut self) -> &mut ::protobuf::RepeatedField<super::spec::ProtoStepValue> {
         &mut self.allSteps
     }
 
@@ -802,7 +830,7 @@ impl GetAllStepsResponse {
         ::std::mem::replace(&mut self.allSteps, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_allSteps<'a>(&'a self) -> &'a [super::spec::ProtoStepValue] {
+    pub fn get_allSteps(&self) -> &[super::spec::ProtoStepValue] {
         &self.allSteps
     }
 }
@@ -831,7 +859,7 @@ impl ::protobuf::Message for GetAllStepsResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.allSteps.iter() {
+        for value in &self.allSteps {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
@@ -841,7 +869,7 @@ impl ::protobuf::Message for GetAllStepsResponse {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        for v in self.allSteps.iter() {
+        for v in &self.allSteps {
             try!(os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited));
             try!(os.write_raw_varint32(v.get_cached_size()));
             try!(v.write_to_with_cached_sizes(os));
@@ -854,11 +882,11 @@ impl ::protobuf::Message for GetAllStepsResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -929,6 +957,9 @@ pub struct GetAllSpecsRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetAllSpecsRequest {}
+
 impl GetAllSpecsRequest {
     pub fn new() -> GetAllSpecsRequest {
         ::std::default::Default::default()
@@ -985,11 +1016,11 @@ impl ::protobuf::Message for GetAllSpecsRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -1056,6 +1087,9 @@ pub struct GetAllSpecsResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetAllSpecsResponse {}
+
 impl GetAllSpecsResponse {
     pub fn new() -> GetAllSpecsResponse {
         ::std::default::Default::default()
@@ -1089,7 +1123,7 @@ impl GetAllSpecsResponse {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_specs<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<super::spec::ProtoSpec> {
+    pub fn mut_specs(&mut self) -> &mut ::protobuf::RepeatedField<super::spec::ProtoSpec> {
         &mut self.specs
     }
 
@@ -1098,7 +1132,7 @@ impl GetAllSpecsResponse {
         ::std::mem::replace(&mut self.specs, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_specs<'a>(&'a self) -> &'a [super::spec::ProtoSpec] {
+    pub fn get_specs(&self) -> &[super::spec::ProtoSpec] {
         &self.specs
     }
 }
@@ -1127,7 +1161,7 @@ impl ::protobuf::Message for GetAllSpecsResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.specs.iter() {
+        for value in &self.specs {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
@@ -1137,7 +1171,7 @@ impl ::protobuf::Message for GetAllSpecsResponse {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        for v in self.specs.iter() {
+        for v in &self.specs {
             try!(os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited));
             try!(os.write_raw_varint32(v.get_cached_size()));
             try!(v.write_to_with_cached_sizes(os));
@@ -1150,11 +1184,11 @@ impl ::protobuf::Message for GetAllSpecsResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -1225,6 +1259,9 @@ pub struct GetAllConceptsRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetAllConceptsRequest {}
+
 impl GetAllConceptsRequest {
     pub fn new() -> GetAllConceptsRequest {
         ::std::default::Default::default()
@@ -1281,11 +1318,11 @@ impl ::protobuf::Message for GetAllConceptsRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -1352,6 +1389,9 @@ pub struct GetAllConceptsResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetAllConceptsResponse {}
+
 impl GetAllConceptsResponse {
     pub fn new() -> GetAllConceptsResponse {
         ::std::default::Default::default()
@@ -1385,7 +1425,7 @@ impl GetAllConceptsResponse {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_concepts<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<ConceptInfo> {
+    pub fn mut_concepts(&mut self) -> &mut ::protobuf::RepeatedField<ConceptInfo> {
         &mut self.concepts
     }
 
@@ -1394,7 +1434,7 @@ impl GetAllConceptsResponse {
         ::std::mem::replace(&mut self.concepts, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_concepts<'a>(&'a self) -> &'a [ConceptInfo] {
+    pub fn get_concepts(&self) -> &[ConceptInfo] {
         &self.concepts
     }
 }
@@ -1423,7 +1463,7 @@ impl ::protobuf::Message for GetAllConceptsResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.concepts.iter() {
+        for value in &self.concepts {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
@@ -1433,7 +1473,7 @@ impl ::protobuf::Message for GetAllConceptsResponse {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        for v in self.concepts.iter() {
+        for v in &self.concepts {
             try!(os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited));
             try!(os.write_raw_varint32(v.get_cached_size()));
             try!(v.write_to_with_cached_sizes(os));
@@ -1446,11 +1486,11 @@ impl ::protobuf::Message for GetAllConceptsResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -1525,6 +1565,9 @@ pub struct ConceptInfo {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for ConceptInfo {}
+
 impl ConceptInfo {
     pub fn new() -> ConceptInfo {
         ::std::default::Default::default()
@@ -1565,7 +1608,7 @@ impl ConceptInfo {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_stepValue<'a>(&'a mut self) -> &'a mut super::spec::ProtoStepValue {
+    pub fn mut_stepValue(&mut self) -> &mut super::spec::ProtoStepValue {
         if self.stepValue.is_none() {
             self.stepValue.set_default();
         };
@@ -1577,7 +1620,7 @@ impl ConceptInfo {
         self.stepValue.take().unwrap_or_else(|| super::spec::ProtoStepValue::new())
     }
 
-    pub fn get_stepValue<'a>(&'a self) -> &'a super::spec::ProtoStepValue {
+    pub fn get_stepValue(&self) -> &super::spec::ProtoStepValue {
         self.stepValue.as_ref().unwrap_or_else(|| super::spec::ProtoStepValue::default_instance())
     }
 
@@ -1598,7 +1641,7 @@ impl ConceptInfo {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_filepath<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_filepath(&mut self) -> &mut ::std::string::String {
         if self.filepath.is_none() {
             self.filepath.set_default();
         };
@@ -1610,7 +1653,7 @@ impl ConceptInfo {
         self.filepath.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_filepath<'a>(&'a self) -> &'a str {
+    pub fn get_filepath(&self) -> &str {
         match self.filepath.as_ref() {
             Some(v) => &v,
             None => "",
@@ -1632,7 +1675,7 @@ impl ConceptInfo {
         self.lineNumber = ::std::option::Option::Some(v);
     }
 
-    pub fn get_lineNumber<'a>(&self) -> i32 {
+    pub fn get_lineNumber(&self) -> i32 {
         self.lineNumber.unwrap_or(0)
     }
 }
@@ -1663,7 +1706,7 @@ impl ::protobuf::Message for ConceptInfo {
                 },
                 3 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::ProtobufError::WireError("unexpected wire type".to_string()));
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     };
                     let tmp = try!(is.read_int32());
                     self.lineNumber = ::std::option::Option::Some(tmp);
@@ -1680,14 +1723,14 @@ impl ::protobuf::Message for ConceptInfo {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.stepValue.iter() {
+        for value in &self.stepValue {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.filepath.iter() {
+        for value in &self.filepath {
             my_size += ::protobuf::rt::string_size(2, &value);
         };
-        for value in self.lineNumber.iter() {
+        for value in &self.lineNumber {
             my_size += ::protobuf::rt::value_size(3, *value, ::protobuf::wire_format::WireTypeVarint);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -1715,11 +1758,11 @@ impl ::protobuf::Message for ConceptInfo {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -1808,6 +1851,9 @@ pub struct GetStepValueRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetStepValueRequest {}
+
 impl GetStepValueRequest {
     pub fn new() -> GetStepValueRequest {
         ::std::default::Default::default()
@@ -1847,7 +1893,7 @@ impl GetStepValueRequest {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_stepText<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_stepText(&mut self) -> &mut ::std::string::String {
         if self.stepText.is_none() {
             self.stepText.set_default();
         };
@@ -1859,7 +1905,7 @@ impl GetStepValueRequest {
         self.stepText.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_stepText<'a>(&'a self) -> &'a str {
+    pub fn get_stepText(&self) -> &str {
         match self.stepText.as_ref() {
             Some(v) => &v,
             None => "",
@@ -1881,7 +1927,7 @@ impl GetStepValueRequest {
         self.hasInlineTable = ::std::option::Option::Some(v);
     }
 
-    pub fn get_hasInlineTable<'a>(&self) -> bool {
+    pub fn get_hasInlineTable(&self) -> bool {
         self.hasInlineTable.unwrap_or(false)
     }
 }
@@ -1903,7 +1949,7 @@ impl ::protobuf::Message for GetStepValueRequest {
                 },
                 2 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::ProtobufError::WireError("unexpected wire type".to_string()));
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     };
                     let tmp = try!(is.read_bool());
                     self.hasInlineTable = ::std::option::Option::Some(tmp);
@@ -1920,7 +1966,7 @@ impl ::protobuf::Message for GetStepValueRequest {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.stepText.iter() {
+        for value in &self.stepText {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
         if self.hasInlineTable.is_some() {
@@ -1946,11 +1992,11 @@ impl ::protobuf::Message for GetStepValueRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -2031,6 +2077,9 @@ pub struct GetStepValueResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetStepValueResponse {}
+
 impl GetStepValueResponse {
     pub fn new() -> GetStepValueResponse {
         ::std::default::Default::default()
@@ -2069,7 +2118,7 @@ impl GetStepValueResponse {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_stepValue<'a>(&'a mut self) -> &'a mut super::spec::ProtoStepValue {
+    pub fn mut_stepValue(&mut self) -> &mut super::spec::ProtoStepValue {
         if self.stepValue.is_none() {
             self.stepValue.set_default();
         };
@@ -2081,7 +2130,7 @@ impl GetStepValueResponse {
         self.stepValue.take().unwrap_or_else(|| super::spec::ProtoStepValue::new())
     }
 
-    pub fn get_stepValue<'a>(&'a self) -> &'a super::spec::ProtoStepValue {
+    pub fn get_stepValue(&self) -> &super::spec::ProtoStepValue {
         self.stepValue.as_ref().unwrap_or_else(|| super::spec::ProtoStepValue::default_instance())
     }
 }
@@ -2113,7 +2162,7 @@ impl ::protobuf::Message for GetStepValueResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.stepValue.iter() {
+        for value in &self.stepValue {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
@@ -2136,11 +2185,11 @@ impl ::protobuf::Message for GetStepValueResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -2214,6 +2263,9 @@ pub struct GetLanguagePluginLibPathRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetLanguagePluginLibPathRequest {}
+
 impl GetLanguagePluginLibPathRequest {
     pub fn new() -> GetLanguagePluginLibPathRequest {
         ::std::default::Default::default()
@@ -2252,7 +2304,7 @@ impl GetLanguagePluginLibPathRequest {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_language<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_language(&mut self) -> &mut ::std::string::String {
         if self.language.is_none() {
             self.language.set_default();
         };
@@ -2264,7 +2316,7 @@ impl GetLanguagePluginLibPathRequest {
         self.language.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_language<'a>(&'a self) -> &'a str {
+    pub fn get_language(&self) -> &str {
         match self.language.as_ref() {
             Some(v) => &v,
             None => "",
@@ -2299,7 +2351,7 @@ impl ::protobuf::Message for GetLanguagePluginLibPathRequest {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.language.iter() {
+        for value in &self.language {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -2319,11 +2371,11 @@ impl ::protobuf::Message for GetLanguagePluginLibPathRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -2397,6 +2449,9 @@ pub struct GetLanguagePluginLibPathResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for GetLanguagePluginLibPathResponse {}
+
 impl GetLanguagePluginLibPathResponse {
     pub fn new() -> GetLanguagePluginLibPathResponse {
         ::std::default::Default::default()
@@ -2435,7 +2490,7 @@ impl GetLanguagePluginLibPathResponse {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_path<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_path(&mut self) -> &mut ::std::string::String {
         if self.path.is_none() {
             self.path.set_default();
         };
@@ -2447,7 +2502,7 @@ impl GetLanguagePluginLibPathResponse {
         self.path.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_path<'a>(&'a self) -> &'a str {
+    pub fn get_path(&self) -> &str {
         match self.path.as_ref() {
             Some(v) => &v,
             None => "",
@@ -2482,7 +2537,7 @@ impl ::protobuf::Message for GetLanguagePluginLibPathResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.path.iter() {
+        for value in &self.path {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -2502,11 +2557,11 @@ impl ::protobuf::Message for GetLanguagePluginLibPathResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -2580,6 +2635,9 @@ pub struct ErrorResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for ErrorResponse {}
+
 impl ErrorResponse {
     pub fn new() -> ErrorResponse {
         ::std::default::Default::default()
@@ -2618,7 +2676,7 @@ impl ErrorResponse {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_error<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_error(&mut self) -> &mut ::std::string::String {
         if self.error.is_none() {
             self.error.set_default();
         };
@@ -2630,7 +2688,7 @@ impl ErrorResponse {
         self.error.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_error<'a>(&'a self) -> &'a str {
+    pub fn get_error(&self) -> &str {
         match self.error.as_ref() {
             Some(v) => &v,
             None => "",
@@ -2665,7 +2723,7 @@ impl ::protobuf::Message for ErrorResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.error.iter() {
+        for value in &self.error {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -2685,11 +2743,11 @@ impl ::protobuf::Message for ErrorResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -2764,6 +2822,9 @@ pub struct PerformRefactoringRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for PerformRefactoringRequest {}
+
 impl PerformRefactoringRequest {
     pub fn new() -> PerformRefactoringRequest {
         ::std::default::Default::default()
@@ -2803,7 +2864,7 @@ impl PerformRefactoringRequest {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_oldStep<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_oldStep(&mut self) -> &mut ::std::string::String {
         if self.oldStep.is_none() {
             self.oldStep.set_default();
         };
@@ -2815,7 +2876,7 @@ impl PerformRefactoringRequest {
         self.oldStep.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_oldStep<'a>(&'a self) -> &'a str {
+    pub fn get_oldStep(&self) -> &str {
         match self.oldStep.as_ref() {
             Some(v) => &v,
             None => "",
@@ -2839,7 +2900,7 @@ impl PerformRefactoringRequest {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_newStep<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_newStep(&mut self) -> &mut ::std::string::String {
         if self.newStep.is_none() {
             self.newStep.set_default();
         };
@@ -2851,7 +2912,7 @@ impl PerformRefactoringRequest {
         self.newStep.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_newStep<'a>(&'a self) -> &'a str {
+    pub fn get_newStep(&self) -> &str {
         match self.newStep.as_ref() {
             Some(v) => &v,
             None => "",
@@ -2892,10 +2953,10 @@ impl ::protobuf::Message for PerformRefactoringRequest {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.oldStep.iter() {
+        for value in &self.oldStep {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
-        for value in self.newStep.iter() {
+        for value in &self.newStep {
             my_size += ::protobuf::rt::string_size(2, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -2918,11 +2979,11 @@ impl ::protobuf::Message for PerformRefactoringRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -3005,6 +3066,9 @@ pub struct PerformRefactoringResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for PerformRefactoringResponse {}
+
 impl PerformRefactoringResponse {
     pub fn new() -> PerformRefactoringResponse {
         ::std::default::Default::default()
@@ -3043,7 +3107,7 @@ impl PerformRefactoringResponse {
         self.success = ::std::option::Option::Some(v);
     }
 
-    pub fn get_success<'a>(&self) -> bool {
+    pub fn get_success(&self) -> bool {
         self.success.unwrap_or(false)
     }
 
@@ -3059,7 +3123,7 @@ impl PerformRefactoringResponse {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_errors<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_errors(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
         &mut self.errors
     }
 
@@ -3068,7 +3132,7 @@ impl PerformRefactoringResponse {
         ::std::mem::replace(&mut self.errors, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_errors<'a>(&'a self) -> &'a [::std::string::String] {
+    pub fn get_errors(&self) -> &[::std::string::String] {
         &self.errors
     }
 
@@ -3084,7 +3148,7 @@ impl PerformRefactoringResponse {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_filesChanged<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_filesChanged(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
         &mut self.filesChanged
     }
 
@@ -3093,7 +3157,7 @@ impl PerformRefactoringResponse {
         ::std::mem::replace(&mut self.filesChanged, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_filesChanged<'a>(&'a self) -> &'a [::std::string::String] {
+    pub fn get_filesChanged(&self) -> &[::std::string::String] {
         &self.filesChanged
     }
 }
@@ -3112,7 +3176,7 @@ impl ::protobuf::Message for PerformRefactoringResponse {
             match field_number {
                 1 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::ProtobufError::WireError("unexpected wire type".to_string()));
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     };
                     let tmp = try!(is.read_bool());
                     self.success = ::std::option::Option::Some(tmp);
@@ -3138,10 +3202,10 @@ impl ::protobuf::Message for PerformRefactoringResponse {
         if self.success.is_some() {
             my_size += 2;
         };
-        for value in self.errors.iter() {
+        for value in &self.errors {
             my_size += ::protobuf::rt::string_size(2, &value);
         };
-        for value in self.filesChanged.iter() {
+        for value in &self.filesChanged {
             my_size += ::protobuf::rt::string_size(3, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -3153,10 +3217,10 @@ impl ::protobuf::Message for PerformRefactoringResponse {
         if let Some(v) = self.success {
             try!(os.write_bool(1, v));
         };
-        for v in self.errors.iter() {
+        for v in &self.errors {
             try!(os.write_string(2, &v));
         };
-        for v in self.filesChanged.iter() {
+        for v in &self.filesChanged {
             try!(os.write_string(3, &v));
         };
         try!(os.write_unknown_fields(self.get_unknown_fields()));
@@ -3167,11 +3231,11 @@ impl ::protobuf::Message for PerformRefactoringResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -3257,6 +3321,9 @@ pub struct ExtractConceptInfoRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for ExtractConceptInfoRequest {}
+
 impl ExtractConceptInfoRequest {
     pub fn new() -> ExtractConceptInfoRequest {
         ::std::default::Default::default()
@@ -3295,7 +3362,7 @@ impl ExtractConceptInfoRequest {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_text<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_text(&mut self) -> &mut ::std::string::String {
         if self.text.is_none() {
             self.text.set_default();
         };
@@ -3307,7 +3374,7 @@ impl ExtractConceptInfoRequest {
         self.text.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_text<'a>(&'a self) -> &'a str {
+    pub fn get_text(&self) -> &str {
         match self.text.as_ref() {
             Some(v) => &v,
             None => "",
@@ -3342,7 +3409,7 @@ impl ::protobuf::Message for ExtractConceptInfoRequest {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.text.iter() {
+        for value in &self.text {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -3362,11 +3429,11 @@ impl ::protobuf::Message for ExtractConceptInfoRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -3444,6 +3511,9 @@ pub struct ExtractConceptRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for ExtractConceptRequest {}
+
 impl ExtractConceptRequest {
     pub fn new() -> ExtractConceptRequest {
         ::std::default::Default::default()
@@ -3486,7 +3556,7 @@ impl ExtractConceptRequest {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_conceptName<'a>(&'a mut self) -> &'a mut step {
+    pub fn mut_conceptName(&mut self) -> &mut step {
         if self.conceptName.is_none() {
             self.conceptName.set_default();
         };
@@ -3498,7 +3568,7 @@ impl ExtractConceptRequest {
         self.conceptName.take().unwrap_or_else(|| step::new())
     }
 
-    pub fn get_conceptName<'a>(&'a self) -> &'a step {
+    pub fn get_conceptName(&self) -> &step {
         self.conceptName.as_ref().unwrap_or_else(|| step::default_instance())
     }
 
@@ -3514,7 +3584,7 @@ impl ExtractConceptRequest {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_steps<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<step> {
+    pub fn mut_steps(&mut self) -> &mut ::protobuf::RepeatedField<step> {
         &mut self.steps
     }
 
@@ -3523,7 +3593,7 @@ impl ExtractConceptRequest {
         ::std::mem::replace(&mut self.steps, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_steps<'a>(&'a self) -> &'a [step] {
+    pub fn get_steps(&self) -> &[step] {
         &self.steps
     }
 
@@ -3542,7 +3612,7 @@ impl ExtractConceptRequest {
         self.changeAcrossProject = ::std::option::Option::Some(v);
     }
 
-    pub fn get_changeAcrossProject<'a>(&self) -> bool {
+    pub fn get_changeAcrossProject(&self) -> bool {
         self.changeAcrossProject.unwrap_or(false)
     }
 
@@ -3563,7 +3633,7 @@ impl ExtractConceptRequest {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_conceptFileName<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_conceptFileName(&mut self) -> &mut ::std::string::String {
         if self.conceptFileName.is_none() {
             self.conceptFileName.set_default();
         };
@@ -3575,7 +3645,7 @@ impl ExtractConceptRequest {
         self.conceptFileName.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_conceptFileName<'a>(&'a self) -> &'a str {
+    pub fn get_conceptFileName(&self) -> &str {
         match self.conceptFileName.as_ref() {
             Some(v) => &v,
             None => "",
@@ -3599,7 +3669,7 @@ impl ExtractConceptRequest {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_selectedTextInfo<'a>(&'a mut self) -> &'a mut textInfo {
+    pub fn mut_selectedTextInfo(&mut self) -> &mut textInfo {
         if self.selectedTextInfo.is_none() {
             self.selectedTextInfo.set_default();
         };
@@ -3611,7 +3681,7 @@ impl ExtractConceptRequest {
         self.selectedTextInfo.take().unwrap_or_else(|| textInfo::new())
     }
 
-    pub fn get_selectedTextInfo<'a>(&'a self) -> &'a textInfo {
+    pub fn get_selectedTextInfo(&self) -> &textInfo {
         self.selectedTextInfo.as_ref().unwrap_or_else(|| textInfo::default_instance())
     }
 }
@@ -3642,7 +3712,7 @@ impl ::protobuf::Message for ExtractConceptRequest {
                 },
                 3 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::ProtobufError::WireError("unexpected wire type".to_string()));
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     };
                     let tmp = try!(is.read_bool());
                     self.changeAcrossProject = ::std::option::Option::Some(tmp);
@@ -3665,21 +3735,21 @@ impl ::protobuf::Message for ExtractConceptRequest {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.conceptName.iter() {
+        for value in &self.conceptName {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.steps.iter() {
+        for value in &self.steps {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
         if self.changeAcrossProject.is_some() {
             my_size += 2;
         };
-        for value in self.conceptFileName.iter() {
+        for value in &self.conceptFileName {
             my_size += ::protobuf::rt::string_size(4, &value);
         };
-        for value in self.selectedTextInfo.iter() {
+        for value in &self.selectedTextInfo {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
@@ -3694,7 +3764,7 @@ impl ::protobuf::Message for ExtractConceptRequest {
             try!(os.write_raw_varint32(v.get_cached_size()));
             try!(v.write_to_with_cached_sizes(os));
         };
-        for v in self.steps.iter() {
+        for v in &self.steps {
             try!(os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited));
             try!(os.write_raw_varint32(v.get_cached_size()));
             try!(v.write_to_with_cached_sizes(os));
@@ -3718,11 +3788,11 @@ impl ::protobuf::Message for ExtractConceptRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -3825,6 +3895,9 @@ pub struct textInfo {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for textInfo {}
+
 impl textInfo {
     pub fn new() -> textInfo {
         ::std::default::Default::default()
@@ -3865,7 +3938,7 @@ impl textInfo {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_fileName<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_fileName(&mut self) -> &mut ::std::string::String {
         if self.fileName.is_none() {
             self.fileName.set_default();
         };
@@ -3877,7 +3950,7 @@ impl textInfo {
         self.fileName.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_fileName<'a>(&'a self) -> &'a str {
+    pub fn get_fileName(&self) -> &str {
         match self.fileName.as_ref() {
             Some(v) => &v,
             None => "",
@@ -3899,7 +3972,7 @@ impl textInfo {
         self.startingLineNo = ::std::option::Option::Some(v);
     }
 
-    pub fn get_startingLineNo<'a>(&self) -> i32 {
+    pub fn get_startingLineNo(&self) -> i32 {
         self.startingLineNo.unwrap_or(0)
     }
 
@@ -3918,7 +3991,7 @@ impl textInfo {
         self.endLineNo = ::std::option::Option::Some(v);
     }
 
-    pub fn get_endLineNo<'a>(&self) -> i32 {
+    pub fn get_endLineNo(&self) -> i32 {
         self.endLineNo.unwrap_or(0)
     }
 }
@@ -3946,14 +4019,14 @@ impl ::protobuf::Message for textInfo {
                 },
                 2 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::ProtobufError::WireError("unexpected wire type".to_string()));
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     };
                     let tmp = try!(is.read_int32());
                     self.startingLineNo = ::std::option::Option::Some(tmp);
                 },
                 3 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::ProtobufError::WireError("unexpected wire type".to_string()));
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     };
                     let tmp = try!(is.read_int32());
                     self.endLineNo = ::std::option::Option::Some(tmp);
@@ -3970,13 +4043,13 @@ impl ::protobuf::Message for textInfo {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.fileName.iter() {
+        for value in &self.fileName {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
-        for value in self.startingLineNo.iter() {
+        for value in &self.startingLineNo {
             my_size += ::protobuf::rt::value_size(2, *value, ::protobuf::wire_format::WireTypeVarint);
         };
-        for value in self.endLineNo.iter() {
+        for value in &self.endLineNo {
             my_size += ::protobuf::rt::value_size(3, *value, ::protobuf::wire_format::WireTypeVarint);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -4002,11 +4075,11 @@ impl ::protobuf::Message for textInfo {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -4096,6 +4169,9 @@ pub struct step {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for step {}
+
 impl step {
     pub fn new() -> step {
         ::std::default::Default::default()
@@ -4136,7 +4212,7 @@ impl step {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_name<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_name(&mut self) -> &mut ::std::string::String {
         if self.name.is_none() {
             self.name.set_default();
         };
@@ -4148,7 +4224,7 @@ impl step {
         self.name.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_name<'a>(&'a self) -> &'a str {
+    pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
             None => "",
@@ -4172,7 +4248,7 @@ impl step {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_table<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_table(&mut self) -> &mut ::std::string::String {
         if self.table.is_none() {
             self.table.set_default();
         };
@@ -4184,7 +4260,7 @@ impl step {
         self.table.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_table<'a>(&'a self) -> &'a str {
+    pub fn get_table(&self) -> &str {
         match self.table.as_ref() {
             Some(v) => &v,
             None => "",
@@ -4208,7 +4284,7 @@ impl step {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_paramTableName<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_paramTableName(&mut self) -> &mut ::std::string::String {
         if self.paramTableName.is_none() {
             self.paramTableName.set_default();
         };
@@ -4220,7 +4296,7 @@ impl step {
         self.paramTableName.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_paramTableName<'a>(&'a self) -> &'a str {
+    pub fn get_paramTableName(&self) -> &str {
         match self.paramTableName.as_ref() {
             Some(v) => &v,
             None => "",
@@ -4261,13 +4337,13 @@ impl ::protobuf::Message for step {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.name.iter() {
+        for value in &self.name {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
-        for value in self.table.iter() {
+        for value in &self.table {
             my_size += ::protobuf::rt::string_size(2, &value);
         };
-        for value in self.paramTableName.iter() {
+        for value in &self.paramTableName {
             my_size += ::protobuf::rt::string_size(3, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -4293,11 +4369,11 @@ impl ::protobuf::Message for step {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -4387,6 +4463,9 @@ pub struct ExtractConceptResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for ExtractConceptResponse {}
+
 impl ExtractConceptResponse {
     pub fn new() -> ExtractConceptResponse {
         ::std::default::Default::default()
@@ -4425,7 +4504,7 @@ impl ExtractConceptResponse {
         self.isSuccess = ::std::option::Option::Some(v);
     }
 
-    pub fn get_isSuccess<'a>(&self) -> bool {
+    pub fn get_isSuccess(&self) -> bool {
         self.isSuccess.unwrap_or(false)
     }
 
@@ -4446,7 +4525,7 @@ impl ExtractConceptResponse {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_error<'a>(&'a mut self) -> &'a mut ::std::string::String {
+    pub fn mut_error(&mut self) -> &mut ::std::string::String {
         if self.error.is_none() {
             self.error.set_default();
         };
@@ -4458,7 +4537,7 @@ impl ExtractConceptResponse {
         self.error.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
-    pub fn get_error<'a>(&'a self) -> &'a str {
+    pub fn get_error(&self) -> &str {
         match self.error.as_ref() {
             Some(v) => &v,
             None => "",
@@ -4477,7 +4556,7 @@ impl ExtractConceptResponse {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_filesChanged<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_filesChanged(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
         &mut self.filesChanged
     }
 
@@ -4486,7 +4565,7 @@ impl ExtractConceptResponse {
         ::std::mem::replace(&mut self.filesChanged, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_filesChanged<'a>(&'a self) -> &'a [::std::string::String] {
+    pub fn get_filesChanged(&self) -> &[::std::string::String] {
         &self.filesChanged
     }
 }
@@ -4505,7 +4584,7 @@ impl ::protobuf::Message for ExtractConceptResponse {
             match field_number {
                 1 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::ProtobufError::WireError("unexpected wire type".to_string()));
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     };
                     let tmp = try!(is.read_bool());
                     self.isSuccess = ::std::option::Option::Some(tmp);
@@ -4531,10 +4610,10 @@ impl ::protobuf::Message for ExtractConceptResponse {
         if self.isSuccess.is_some() {
             my_size += 2;
         };
-        for value in self.error.iter() {
+        for value in &self.error {
             my_size += ::protobuf::rt::string_size(2, &value);
         };
-        for value in self.filesChanged.iter() {
+        for value in &self.filesChanged {
             my_size += ::protobuf::rt::string_size(3, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -4549,7 +4628,7 @@ impl ::protobuf::Message for ExtractConceptResponse {
         if let Some(v) = self.error.as_ref() {
             try!(os.write_string(2, &v));
         };
-        for v in self.filesChanged.iter() {
+        for v in &self.filesChanged {
             try!(os.write_string(3, &v));
         };
         try!(os.write_unknown_fields(self.get_unknown_fields()));
@@ -4560,11 +4639,11 @@ impl ::protobuf::Message for ExtractConceptResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -4651,6 +4730,9 @@ pub struct FormatSpecsRequest {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for FormatSpecsRequest {}
+
 impl FormatSpecsRequest {
     pub fn new() -> FormatSpecsRequest {
         ::std::default::Default::default()
@@ -4684,7 +4766,7 @@ impl FormatSpecsRequest {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_specs<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_specs(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
         &mut self.specs
     }
 
@@ -4693,7 +4775,7 @@ impl FormatSpecsRequest {
         ::std::mem::replace(&mut self.specs, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_specs<'a>(&'a self) -> &'a [::std::string::String] {
+    pub fn get_specs(&self) -> &[::std::string::String] {
         &self.specs
     }
 }
@@ -4722,7 +4804,7 @@ impl ::protobuf::Message for FormatSpecsRequest {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.specs.iter() {
+        for value in &self.specs {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -4731,7 +4813,7 @@ impl ::protobuf::Message for FormatSpecsRequest {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        for v in self.specs.iter() {
+        for v in &self.specs {
             try!(os.write_string(1, &v));
         };
         try!(os.write_unknown_fields(self.get_unknown_fields()));
@@ -4742,11 +4824,11 @@ impl ::protobuf::Message for FormatSpecsRequest {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -4820,6 +4902,9 @@ pub struct FormatSpecsResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for FormatSpecsResponse {}
+
 impl FormatSpecsResponse {
     pub fn new() -> FormatSpecsResponse {
         ::std::default::Default::default()
@@ -4854,7 +4939,7 @@ impl FormatSpecsResponse {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_errors<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_errors(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
         &mut self.errors
     }
 
@@ -4863,7 +4948,7 @@ impl FormatSpecsResponse {
         ::std::mem::replace(&mut self.errors, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_errors<'a>(&'a self) -> &'a [::std::string::String] {
+    pub fn get_errors(&self) -> &[::std::string::String] {
         &self.errors
     }
 
@@ -4879,7 +4964,7 @@ impl FormatSpecsResponse {
     }
 
     // Mutable pointer to the field.
-    pub fn mut_warnings<'a>(&'a mut self) -> &'a mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_warnings(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
         &mut self.warnings
     }
 
@@ -4888,7 +4973,7 @@ impl FormatSpecsResponse {
         ::std::mem::replace(&mut self.warnings, ::protobuf::RepeatedField::new())
     }
 
-    pub fn get_warnings<'a>(&'a self) -> &'a [::std::string::String] {
+    pub fn get_warnings(&self) -> &[::std::string::String] {
         &self.warnings
     }
 }
@@ -4920,10 +5005,10 @@ impl ::protobuf::Message for FormatSpecsResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.errors.iter() {
+        for value in &self.errors {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
-        for value in self.warnings.iter() {
+        for value in &self.warnings {
             my_size += ::protobuf::rt::string_size(2, &value);
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
@@ -4932,10 +5017,10 @@ impl ::protobuf::Message for FormatSpecsResponse {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        for v in self.errors.iter() {
+        for v in &self.errors {
             try!(os.write_string(1, &v));
         };
-        for v in self.warnings.iter() {
+        for v in &self.warnings {
             try!(os.write_string(2, &v));
         };
         try!(os.write_unknown_fields(self.get_unknown_fields()));
@@ -4946,11 +5031,11 @@ impl ::protobuf::Message for FormatSpecsResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -5027,6 +5112,9 @@ pub struct UnsupportedApiMessageResponse {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for UnsupportedApiMessageResponse {}
+
 impl UnsupportedApiMessageResponse {
     pub fn new() -> UnsupportedApiMessageResponse {
         ::std::default::Default::default()
@@ -5083,11 +5171,11 @@ impl ::protobuf::Message for UnsupportedApiMessageResponse {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
@@ -5177,6 +5265,9 @@ pub struct APIMessage {
     cached_size: ::std::cell::Cell<u32>,
 }
 
+// see codegen.rs for the explanation why impl Sync explicitly
+unsafe impl ::std::marker::Sync for APIMessage {}
+
 impl APIMessage {
     pub fn new() -> APIMessage {
         ::std::default::Default::default()
@@ -5236,7 +5327,7 @@ impl APIMessage {
         self.messageType = ::std::option::Option::Some(v);
     }
 
-    pub fn get_messageType<'a>(&self) -> APIMessage_APIMessageType {
+    pub fn get_messageType(&self) -> APIMessage_APIMessageType {
         self.messageType.unwrap_or(APIMessage_APIMessageType::GetProjectRootRequest)
     }
 
@@ -5255,7 +5346,7 @@ impl APIMessage {
         self.messageId = ::std::option::Option::Some(v);
     }
 
-    pub fn get_messageId<'a>(&self) -> i64 {
+    pub fn get_messageId(&self) -> i64 {
         self.messageId.unwrap_or(0)
     }
 
@@ -5276,7 +5367,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_projectRootRequest<'a>(&'a mut self) -> &'a mut GetProjectRootRequest {
+    pub fn mut_projectRootRequest(&mut self) -> &mut GetProjectRootRequest {
         if self.projectRootRequest.is_none() {
             self.projectRootRequest.set_default();
         };
@@ -5288,7 +5379,7 @@ impl APIMessage {
         self.projectRootRequest.take().unwrap_or_else(|| GetProjectRootRequest::new())
     }
 
-    pub fn get_projectRootRequest<'a>(&'a self) -> &'a GetProjectRootRequest {
+    pub fn get_projectRootRequest(&self) -> &GetProjectRootRequest {
         self.projectRootRequest.as_ref().unwrap_or_else(|| GetProjectRootRequest::default_instance())
     }
 
@@ -5309,7 +5400,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_projectRootResponse<'a>(&'a mut self) -> &'a mut GetProjectRootResponse {
+    pub fn mut_projectRootResponse(&mut self) -> &mut GetProjectRootResponse {
         if self.projectRootResponse.is_none() {
             self.projectRootResponse.set_default();
         };
@@ -5321,7 +5412,7 @@ impl APIMessage {
         self.projectRootResponse.take().unwrap_or_else(|| GetProjectRootResponse::new())
     }
 
-    pub fn get_projectRootResponse<'a>(&'a self) -> &'a GetProjectRootResponse {
+    pub fn get_projectRootResponse(&self) -> &GetProjectRootResponse {
         self.projectRootResponse.as_ref().unwrap_or_else(|| GetProjectRootResponse::default_instance())
     }
 
@@ -5342,7 +5433,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_installationRootRequest<'a>(&'a mut self) -> &'a mut GetInstallationRootRequest {
+    pub fn mut_installationRootRequest(&mut self) -> &mut GetInstallationRootRequest {
         if self.installationRootRequest.is_none() {
             self.installationRootRequest.set_default();
         };
@@ -5354,7 +5445,7 @@ impl APIMessage {
         self.installationRootRequest.take().unwrap_or_else(|| GetInstallationRootRequest::new())
     }
 
-    pub fn get_installationRootRequest<'a>(&'a self) -> &'a GetInstallationRootRequest {
+    pub fn get_installationRootRequest(&self) -> &GetInstallationRootRequest {
         self.installationRootRequest.as_ref().unwrap_or_else(|| GetInstallationRootRequest::default_instance())
     }
 
@@ -5375,7 +5466,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_installationRootResponse<'a>(&'a mut self) -> &'a mut GetInstallationRootResponse {
+    pub fn mut_installationRootResponse(&mut self) -> &mut GetInstallationRootResponse {
         if self.installationRootResponse.is_none() {
             self.installationRootResponse.set_default();
         };
@@ -5387,7 +5478,7 @@ impl APIMessage {
         self.installationRootResponse.take().unwrap_or_else(|| GetInstallationRootResponse::new())
     }
 
-    pub fn get_installationRootResponse<'a>(&'a self) -> &'a GetInstallationRootResponse {
+    pub fn get_installationRootResponse(&self) -> &GetInstallationRootResponse {
         self.installationRootResponse.as_ref().unwrap_or_else(|| GetInstallationRootResponse::default_instance())
     }
 
@@ -5408,7 +5499,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_allStepsRequest<'a>(&'a mut self) -> &'a mut GetAllStepsRequest {
+    pub fn mut_allStepsRequest(&mut self) -> &mut GetAllStepsRequest {
         if self.allStepsRequest.is_none() {
             self.allStepsRequest.set_default();
         };
@@ -5420,7 +5511,7 @@ impl APIMessage {
         self.allStepsRequest.take().unwrap_or_else(|| GetAllStepsRequest::new())
     }
 
-    pub fn get_allStepsRequest<'a>(&'a self) -> &'a GetAllStepsRequest {
+    pub fn get_allStepsRequest(&self) -> &GetAllStepsRequest {
         self.allStepsRequest.as_ref().unwrap_or_else(|| GetAllStepsRequest::default_instance())
     }
 
@@ -5441,7 +5532,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_allStepsResponse<'a>(&'a mut self) -> &'a mut GetAllStepsResponse {
+    pub fn mut_allStepsResponse(&mut self) -> &mut GetAllStepsResponse {
         if self.allStepsResponse.is_none() {
             self.allStepsResponse.set_default();
         };
@@ -5453,7 +5544,7 @@ impl APIMessage {
         self.allStepsResponse.take().unwrap_or_else(|| GetAllStepsResponse::new())
     }
 
-    pub fn get_allStepsResponse<'a>(&'a self) -> &'a GetAllStepsResponse {
+    pub fn get_allStepsResponse(&self) -> &GetAllStepsResponse {
         self.allStepsResponse.as_ref().unwrap_or_else(|| GetAllStepsResponse::default_instance())
     }
 
@@ -5474,7 +5565,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_allSpecsRequest<'a>(&'a mut self) -> &'a mut GetAllSpecsRequest {
+    pub fn mut_allSpecsRequest(&mut self) -> &mut GetAllSpecsRequest {
         if self.allSpecsRequest.is_none() {
             self.allSpecsRequest.set_default();
         };
@@ -5486,7 +5577,7 @@ impl APIMessage {
         self.allSpecsRequest.take().unwrap_or_else(|| GetAllSpecsRequest::new())
     }
 
-    pub fn get_allSpecsRequest<'a>(&'a self) -> &'a GetAllSpecsRequest {
+    pub fn get_allSpecsRequest(&self) -> &GetAllSpecsRequest {
         self.allSpecsRequest.as_ref().unwrap_or_else(|| GetAllSpecsRequest::default_instance())
     }
 
@@ -5507,7 +5598,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_allSpecsResponse<'a>(&'a mut self) -> &'a mut GetAllSpecsResponse {
+    pub fn mut_allSpecsResponse(&mut self) -> &mut GetAllSpecsResponse {
         if self.allSpecsResponse.is_none() {
             self.allSpecsResponse.set_default();
         };
@@ -5519,7 +5610,7 @@ impl APIMessage {
         self.allSpecsResponse.take().unwrap_or_else(|| GetAllSpecsResponse::new())
     }
 
-    pub fn get_allSpecsResponse<'a>(&'a self) -> &'a GetAllSpecsResponse {
+    pub fn get_allSpecsResponse(&self) -> &GetAllSpecsResponse {
         self.allSpecsResponse.as_ref().unwrap_or_else(|| GetAllSpecsResponse::default_instance())
     }
 
@@ -5540,7 +5631,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_stepValueRequest<'a>(&'a mut self) -> &'a mut GetStepValueRequest {
+    pub fn mut_stepValueRequest(&mut self) -> &mut GetStepValueRequest {
         if self.stepValueRequest.is_none() {
             self.stepValueRequest.set_default();
         };
@@ -5552,7 +5643,7 @@ impl APIMessage {
         self.stepValueRequest.take().unwrap_or_else(|| GetStepValueRequest::new())
     }
 
-    pub fn get_stepValueRequest<'a>(&'a self) -> &'a GetStepValueRequest {
+    pub fn get_stepValueRequest(&self) -> &GetStepValueRequest {
         self.stepValueRequest.as_ref().unwrap_or_else(|| GetStepValueRequest::default_instance())
     }
 
@@ -5573,7 +5664,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_stepValueResponse<'a>(&'a mut self) -> &'a mut GetStepValueResponse {
+    pub fn mut_stepValueResponse(&mut self) -> &mut GetStepValueResponse {
         if self.stepValueResponse.is_none() {
             self.stepValueResponse.set_default();
         };
@@ -5585,7 +5676,7 @@ impl APIMessage {
         self.stepValueResponse.take().unwrap_or_else(|| GetStepValueResponse::new())
     }
 
-    pub fn get_stepValueResponse<'a>(&'a self) -> &'a GetStepValueResponse {
+    pub fn get_stepValueResponse(&self) -> &GetStepValueResponse {
         self.stepValueResponse.as_ref().unwrap_or_else(|| GetStepValueResponse::default_instance())
     }
 
@@ -5606,7 +5697,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_libPathRequest<'a>(&'a mut self) -> &'a mut GetLanguagePluginLibPathRequest {
+    pub fn mut_libPathRequest(&mut self) -> &mut GetLanguagePluginLibPathRequest {
         if self.libPathRequest.is_none() {
             self.libPathRequest.set_default();
         };
@@ -5618,7 +5709,7 @@ impl APIMessage {
         self.libPathRequest.take().unwrap_or_else(|| GetLanguagePluginLibPathRequest::new())
     }
 
-    pub fn get_libPathRequest<'a>(&'a self) -> &'a GetLanguagePluginLibPathRequest {
+    pub fn get_libPathRequest(&self) -> &GetLanguagePluginLibPathRequest {
         self.libPathRequest.as_ref().unwrap_or_else(|| GetLanguagePluginLibPathRequest::default_instance())
     }
 
@@ -5639,7 +5730,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_libPathResponse<'a>(&'a mut self) -> &'a mut GetLanguagePluginLibPathResponse {
+    pub fn mut_libPathResponse(&mut self) -> &mut GetLanguagePluginLibPathResponse {
         if self.libPathResponse.is_none() {
             self.libPathResponse.set_default();
         };
@@ -5651,7 +5742,7 @@ impl APIMessage {
         self.libPathResponse.take().unwrap_or_else(|| GetLanguagePluginLibPathResponse::new())
     }
 
-    pub fn get_libPathResponse<'a>(&'a self) -> &'a GetLanguagePluginLibPathResponse {
+    pub fn get_libPathResponse(&self) -> &GetLanguagePluginLibPathResponse {
         self.libPathResponse.as_ref().unwrap_or_else(|| GetLanguagePluginLibPathResponse::default_instance())
     }
 
@@ -5672,7 +5763,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_error<'a>(&'a mut self) -> &'a mut ErrorResponse {
+    pub fn mut_error(&mut self) -> &mut ErrorResponse {
         if self.error.is_none() {
             self.error.set_default();
         };
@@ -5684,7 +5775,7 @@ impl APIMessage {
         self.error.take().unwrap_or_else(|| ErrorResponse::new())
     }
 
-    pub fn get_error<'a>(&'a self) -> &'a ErrorResponse {
+    pub fn get_error(&self) -> &ErrorResponse {
         self.error.as_ref().unwrap_or_else(|| ErrorResponse::default_instance())
     }
 
@@ -5705,7 +5796,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_allConceptsRequest<'a>(&'a mut self) -> &'a mut GetAllConceptsRequest {
+    pub fn mut_allConceptsRequest(&mut self) -> &mut GetAllConceptsRequest {
         if self.allConceptsRequest.is_none() {
             self.allConceptsRequest.set_default();
         };
@@ -5717,7 +5808,7 @@ impl APIMessage {
         self.allConceptsRequest.take().unwrap_or_else(|| GetAllConceptsRequest::new())
     }
 
-    pub fn get_allConceptsRequest<'a>(&'a self) -> &'a GetAllConceptsRequest {
+    pub fn get_allConceptsRequest(&self) -> &GetAllConceptsRequest {
         self.allConceptsRequest.as_ref().unwrap_or_else(|| GetAllConceptsRequest::default_instance())
     }
 
@@ -5738,7 +5829,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_allConceptsResponse<'a>(&'a mut self) -> &'a mut GetAllConceptsResponse {
+    pub fn mut_allConceptsResponse(&mut self) -> &mut GetAllConceptsResponse {
         if self.allConceptsResponse.is_none() {
             self.allConceptsResponse.set_default();
         };
@@ -5750,7 +5841,7 @@ impl APIMessage {
         self.allConceptsResponse.take().unwrap_or_else(|| GetAllConceptsResponse::new())
     }
 
-    pub fn get_allConceptsResponse<'a>(&'a self) -> &'a GetAllConceptsResponse {
+    pub fn get_allConceptsResponse(&self) -> &GetAllConceptsResponse {
         self.allConceptsResponse.as_ref().unwrap_or_else(|| GetAllConceptsResponse::default_instance())
     }
 
@@ -5771,7 +5862,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_performRefactoringRequest<'a>(&'a mut self) -> &'a mut PerformRefactoringRequest {
+    pub fn mut_performRefactoringRequest(&mut self) -> &mut PerformRefactoringRequest {
         if self.performRefactoringRequest.is_none() {
             self.performRefactoringRequest.set_default();
         };
@@ -5783,7 +5874,7 @@ impl APIMessage {
         self.performRefactoringRequest.take().unwrap_or_else(|| PerformRefactoringRequest::new())
     }
 
-    pub fn get_performRefactoringRequest<'a>(&'a self) -> &'a PerformRefactoringRequest {
+    pub fn get_performRefactoringRequest(&self) -> &PerformRefactoringRequest {
         self.performRefactoringRequest.as_ref().unwrap_or_else(|| PerformRefactoringRequest::default_instance())
     }
 
@@ -5804,7 +5895,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_performRefactoringResponse<'a>(&'a mut self) -> &'a mut PerformRefactoringResponse {
+    pub fn mut_performRefactoringResponse(&mut self) -> &mut PerformRefactoringResponse {
         if self.performRefactoringResponse.is_none() {
             self.performRefactoringResponse.set_default();
         };
@@ -5816,7 +5907,7 @@ impl APIMessage {
         self.performRefactoringResponse.take().unwrap_or_else(|| PerformRefactoringResponse::new())
     }
 
-    pub fn get_performRefactoringResponse<'a>(&'a self) -> &'a PerformRefactoringResponse {
+    pub fn get_performRefactoringResponse(&self) -> &PerformRefactoringResponse {
         self.performRefactoringResponse.as_ref().unwrap_or_else(|| PerformRefactoringResponse::default_instance())
     }
 
@@ -5837,7 +5928,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_extractConceptRequest<'a>(&'a mut self) -> &'a mut ExtractConceptRequest {
+    pub fn mut_extractConceptRequest(&mut self) -> &mut ExtractConceptRequest {
         if self.extractConceptRequest.is_none() {
             self.extractConceptRequest.set_default();
         };
@@ -5849,7 +5940,7 @@ impl APIMessage {
         self.extractConceptRequest.take().unwrap_or_else(|| ExtractConceptRequest::new())
     }
 
-    pub fn get_extractConceptRequest<'a>(&'a self) -> &'a ExtractConceptRequest {
+    pub fn get_extractConceptRequest(&self) -> &ExtractConceptRequest {
         self.extractConceptRequest.as_ref().unwrap_or_else(|| ExtractConceptRequest::default_instance())
     }
 
@@ -5870,7 +5961,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_extractConceptResponse<'a>(&'a mut self) -> &'a mut ExtractConceptResponse {
+    pub fn mut_extractConceptResponse(&mut self) -> &mut ExtractConceptResponse {
         if self.extractConceptResponse.is_none() {
             self.extractConceptResponse.set_default();
         };
@@ -5882,7 +5973,7 @@ impl APIMessage {
         self.extractConceptResponse.take().unwrap_or_else(|| ExtractConceptResponse::new())
     }
 
-    pub fn get_extractConceptResponse<'a>(&'a self) -> &'a ExtractConceptResponse {
+    pub fn get_extractConceptResponse(&self) -> &ExtractConceptResponse {
         self.extractConceptResponse.as_ref().unwrap_or_else(|| ExtractConceptResponse::default_instance())
     }
 
@@ -5903,7 +5994,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_formatSpecsRequest<'a>(&'a mut self) -> &'a mut FormatSpecsRequest {
+    pub fn mut_formatSpecsRequest(&mut self) -> &mut FormatSpecsRequest {
         if self.formatSpecsRequest.is_none() {
             self.formatSpecsRequest.set_default();
         };
@@ -5915,7 +6006,7 @@ impl APIMessage {
         self.formatSpecsRequest.take().unwrap_or_else(|| FormatSpecsRequest::new())
     }
 
-    pub fn get_formatSpecsRequest<'a>(&'a self) -> &'a FormatSpecsRequest {
+    pub fn get_formatSpecsRequest(&self) -> &FormatSpecsRequest {
         self.formatSpecsRequest.as_ref().unwrap_or_else(|| FormatSpecsRequest::default_instance())
     }
 
@@ -5936,7 +6027,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_formatSpecsResponse<'a>(&'a mut self) -> &'a mut FormatSpecsResponse {
+    pub fn mut_formatSpecsResponse(&mut self) -> &mut FormatSpecsResponse {
         if self.formatSpecsResponse.is_none() {
             self.formatSpecsResponse.set_default();
         };
@@ -5948,7 +6039,7 @@ impl APIMessage {
         self.formatSpecsResponse.take().unwrap_or_else(|| FormatSpecsResponse::new())
     }
 
-    pub fn get_formatSpecsResponse<'a>(&'a self) -> &'a FormatSpecsResponse {
+    pub fn get_formatSpecsResponse(&self) -> &FormatSpecsResponse {
         self.formatSpecsResponse.as_ref().unwrap_or_else(|| FormatSpecsResponse::default_instance())
     }
 
@@ -5969,7 +6060,7 @@ impl APIMessage {
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_unsupportedApiMessageResponse<'a>(&'a mut self) -> &'a mut UnsupportedApiMessageResponse {
+    pub fn mut_unsupportedApiMessageResponse(&mut self) -> &mut UnsupportedApiMessageResponse {
         if self.unsupportedApiMessageResponse.is_none() {
             self.unsupportedApiMessageResponse.set_default();
         };
@@ -5981,7 +6072,7 @@ impl APIMessage {
         self.unsupportedApiMessageResponse.take().unwrap_or_else(|| UnsupportedApiMessageResponse::new())
     }
 
-    pub fn get_unsupportedApiMessageResponse<'a>(&'a self) -> &'a UnsupportedApiMessageResponse {
+    pub fn get_unsupportedApiMessageResponse(&self) -> &UnsupportedApiMessageResponse {
         self.unsupportedApiMessageResponse.as_ref().unwrap_or_else(|| UnsupportedApiMessageResponse::default_instance())
     }
 }
@@ -6003,14 +6094,14 @@ impl ::protobuf::Message for APIMessage {
             match field_number {
                 1 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::ProtobufError::WireError("unexpected wire type".to_string()));
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     };
                     let tmp = try!(is.read_enum());
                     self.messageType = ::std::option::Option::Some(tmp);
                 },
                 2 => {
                     if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::ProtobufError::WireError("unexpected wire type".to_string()));
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     };
                     let tmp = try!(is.read_int64());
                     self.messageId = ::std::option::Option::Some(tmp);
@@ -6093,97 +6184,97 @@ impl ::protobuf::Message for APIMessage {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        for value in self.messageType.iter() {
+        for value in &self.messageType {
             my_size += ::protobuf::rt::enum_size(1, *value);
         };
-        for value in self.messageId.iter() {
+        for value in &self.messageId {
             my_size += ::protobuf::rt::value_size(2, *value, ::protobuf::wire_format::WireTypeVarint);
         };
-        for value in self.projectRootRequest.iter() {
+        for value in &self.projectRootRequest {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.projectRootResponse.iter() {
+        for value in &self.projectRootResponse {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.installationRootRequest.iter() {
+        for value in &self.installationRootRequest {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.installationRootResponse.iter() {
+        for value in &self.installationRootResponse {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.allStepsRequest.iter() {
+        for value in &self.allStepsRequest {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.allStepsResponse.iter() {
+        for value in &self.allStepsResponse {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.allSpecsRequest.iter() {
+        for value in &self.allSpecsRequest {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.allSpecsResponse.iter() {
+        for value in &self.allSpecsResponse {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.stepValueRequest.iter() {
+        for value in &self.stepValueRequest {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.stepValueResponse.iter() {
+        for value in &self.stepValueResponse {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.libPathRequest.iter() {
+        for value in &self.libPathRequest {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.libPathResponse.iter() {
+        for value in &self.libPathResponse {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.error.iter() {
+        for value in &self.error {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.allConceptsRequest.iter() {
+        for value in &self.allConceptsRequest {
             let len = value.compute_size();
             my_size += 2 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.allConceptsResponse.iter() {
+        for value in &self.allConceptsResponse {
             let len = value.compute_size();
             my_size += 2 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.performRefactoringRequest.iter() {
+        for value in &self.performRefactoringRequest {
             let len = value.compute_size();
             my_size += 2 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.performRefactoringResponse.iter() {
+        for value in &self.performRefactoringResponse {
             let len = value.compute_size();
             my_size += 2 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.extractConceptRequest.iter() {
+        for value in &self.extractConceptRequest {
             let len = value.compute_size();
             my_size += 2 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.extractConceptResponse.iter() {
+        for value in &self.extractConceptResponse {
             let len = value.compute_size();
             my_size += 2 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.formatSpecsRequest.iter() {
+        for value in &self.formatSpecsRequest {
             let len = value.compute_size();
             my_size += 2 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.formatSpecsResponse.iter() {
+        for value in &self.formatSpecsResponse {
             let len = value.compute_size();
             my_size += 2 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        for value in self.unsupportedApiMessageResponse.iter() {
+        for value in &self.unsupportedApiMessageResponse {
             let len = value.compute_size();
             my_size += 2 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
@@ -6194,7 +6285,7 @@ impl ::protobuf::Message for APIMessage {
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(v) = self.messageType {
-            try!(os.write_enum(1, v as i32));
+            try!(os.write_enum(1, v.value()));
         };
         if let Some(v) = self.messageId {
             try!(os.write_int64(2, v));
@@ -6317,11 +6408,11 @@ impl ::protobuf::Message for APIMessage {
         self.cached_size.get()
     }
 
-    fn get_unknown_fields<'s>(&'s self) -> &'s ::protobuf::UnknownFields {
+    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
 
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut ::protobuf::UnknownFields {
+    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
         &mut self.unknown_fields
     }
 
