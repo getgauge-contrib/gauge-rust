@@ -1,7 +1,7 @@
 extern crate lazy_static;
 
 use std::env;
-use std::io;
+use std::io::Result;
 use std::path::PathBuf;
 use std::fs::{self, DirEntry};
 use std::string::String;
@@ -37,25 +37,24 @@ pub fn env_var(ev: &'static str) -> String {
 
 pub fn path_to<'a>(pathslice: &'a str, root: &PathBuf) -> PathBuf { root.join(pathslice) }
 
-pub fn create_dir(dirpath: &PathBuf) -> io::Result<&PathBuf> {
+pub fn create_dir(dirpath: &PathBuf) -> Result<&PathBuf> {
     try!(fs::create_dir_all(dirpath));
     Ok(dirpath)
 }
 
-pub fn copy_file<'a>(from: &'a PathBuf, to: &'a PathBuf) -> io::Result<(&'a PathBuf, &'a PathBuf)> {
+pub fn copy_file<'a>(from: &'a PathBuf, to: &'a PathBuf) -> Result<(&'a PathBuf, &'a PathBuf)> {
     try!(fs::copy(from, to));
     Ok((from, to))
 }
 
-// Source: https://doc.rust-lang.org/std/fs/fn.read_dir.html
-pub fn visit_dirs(dir: &PathBuf, cb: &Fn(&DirEntry)) -> io::Result<()> {
+pub fn visit_dirs(dir: &PathBuf, callback: &Fn(&DirEntry)) -> Result<()> {
     if try!(fs::metadata(dir)).is_dir() {
         for entry in try!(fs::read_dir(dir)) {
             let entry = try!(entry);
             if try!(fs::metadata(entry.path())).is_dir() {
-                try!(visit_dirs(&entry.path(), cb));
+                try!(visit_dirs(&entry.path(), callback));
             } else {
-                cb(&entry);
+                callback(&entry);
             }
         }
     }
